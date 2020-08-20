@@ -2,12 +2,12 @@ import { createReducer } from '@rootstrap/redux-tools';
 import { loginSuccess, signUpSuccess, logoutSuccess, updateSession } from 'actions/userActions';
 
 const initialState = {
-  user: null,
+  token: null,
   info: null,
 };
 
 const handleLoginSuccess = (state, { payload }) => {
-  state.user = payload;
+  state.token = payload;
 };
 
 const handleLogoutSuccess = () => {

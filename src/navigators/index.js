@@ -11,12 +11,12 @@ import AuthStack from './AuthStack';
 const Stack = createStackNavigator();
 
 const Navigation = () => {
-  const { user, info } = useSession();
+  const { token } = useSession();
 
   return (
     <NavigationContainer>
       <Stack.Navigator headerMode="none">
-        {user && info ? (
+        {token ? (
           <Stack.Screen name={APP_STACK} component={AppStack} />
         ) : (
           <Stack.Screen name={AUTH_STACK} component={AuthStack} />

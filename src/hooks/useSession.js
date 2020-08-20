@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 
 const useSession = () =>
-  useSelector(({ session: { user, info } }) => ({
-    user: user || {},
+  useSelector(({ session: { token, info } }) => ({
+    token: token || null,
     info,
   }));
 
