@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import useSession from 'hooks/useSession';
 import { APP_STACK, AUTH_STACK } from 'constants/screens';
 
+import { SafeAreaView } from 'react-native-safe-area-context';
 import AppStack from './AppStack';
 import AuthStack from './AuthStack';
 
@@ -15,13 +16,14 @@ const Navigation = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none">
-        {token ? (
-          <Stack.Screen name={APP_STACK} component={AppStack} />
-        ) : (
+      <SafeAreaView />
+      {token ? (
+        <AppStack />
+      ) : (
+        <Stack.Navigator headerMode="none">
           <Stack.Screen name={AUTH_STACK} component={AuthStack} />
-        )}
-      </Stack.Navigator>
+        </Stack.Navigator>
+      )}
     </NavigationContainer>
   );
 };
